@@ -1,27 +1,59 @@
 # TicketPrices
+https://ticket-prices.vercel.app/
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.3.
+## FAQ
+**Q**: Какова структура приложения?
 
-## Development server
+**A**: Работа приложения построена на двух компонентах: родительском и дочернем.
+<br/>
+Родительский компонент PassengerFormComponent:
+- содержит в себе форму
+- передает данные формы в дочерний компонент
+<br/>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Дочерний компонент CostInfoComponent:
+- рендерится отдельно для каждого перевозчика
+- содержит в себе информацию о стоимости билетов
+<br/>
 
-## Code scaffolding
+**Q**: Где находятся данные, поставляемые компонентам?
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**A**: В tariffs.service. Данные по тарифам и общие функции по вычислению стоимости билетов вынесены из самих компонентов в сервис.
+<br/>
+<br/>
 
-## Build
+**Q**: Как насчет тестов?
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**A**: Помимо встроенных тестов написаны тесты для функции по вычислению стоимости билетов. Посмотреть их можно в tariffs.service.spec
+<br/>
+<br/>
 
-## Running unit tests
+**Q**: Зачем здесь нужны миксины?
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**A**: Чтобы применять разные стили в зависимости от ориентации устройства
+<br/>
+<br/>
 
-## Running end-to-end tests
+**Q**: Что было бы, если бы на задание давалось больше времени?
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**A**: 
+- Качественные тесты! Это мои первые тесты на Angular и мне хотелось бы узнать о них больше (и писать их лучше)
+- CI с запуском тестов. Почему Github Actions не работает с этим приложением так, как должен? Об этом я узнаю, когда будет свободное время.
+<br/>
+<br/>
 
-## Further help
+**Q**: Что-то не так с использованием TypeScript. Почему?
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**A**: Потому что что-то не так с моими знаниями TypeScript ¯\_(ツ)_/¯ Буду рада фидбэку!
+<br/>
+<br/>
+
+**Q**: Зачем здесь вообще Angular? 
+
+**A**: Потому что это тестовое задание для вакансии, в которой требуются знания Angular
+
+
+
+
+
+
