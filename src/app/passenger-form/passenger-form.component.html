@@ -1,0 +1,26 @@
+<div class="content">
+    <form [formGroup]="passengerForm" (ngSubmit)="onSubmit()" class="passenger-form">
+        <label for="distance">Количество километров</label>
+        <input type="number" formControlName="distance" id="distance">
+
+        <label for="age">Возраст</label>
+        <input type="number" step="1" formControlName="age" id="age">
+        
+
+        <label for="baggageWeight">Вес багажа</label>
+        <input type="number" formControlName="baggageWeight"id="baggageWeight">
+
+        <div class="alert" *ngIf="!passengerForm.valid && passengerForm.dirty">
+            Введите корректные данные
+        </div>
+        <button type="submit" [disabled]="!passengerForm.valid">
+            Рассчитать
+        </button>
+    </form>
+    <div class="costs" *ngIf="passengerData">
+        <div class="carrier-info" *ngFor="let carrier of carriers">
+            <app-cost-info [passengerData]='passengerData' [carrierName]='carrier'></app-cost-info>
+        </div>
+    
+    </div>
+</div>
