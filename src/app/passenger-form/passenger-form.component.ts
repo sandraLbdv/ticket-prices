@@ -16,7 +16,7 @@ export class PassengerFormComponent implements OnInit {
   passengerForm = this.fb.group({
     distance: [null, [
       Validators.required,
-      Validators.min(0),
+      Validators.min(1),
     ]],
     age: [null, [
       Validators.required,

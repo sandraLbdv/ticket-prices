@@ -2,7 +2,7 @@
     <form [formGroup]="passengerForm" (ngSubmit)="onSubmit()" class="passenger-form">
         <div class="input-wrapper">
             <label class="passenger-form__label" for="distance">Количество километров</label>
-            <input class="passenger-form__input" min="0" type="number" formControlName="distance" id="distance">
+            <input class="passenger-form__input" min="1" type="number" formControlName="distance" id="distance">
         </div>
         <div class="input-wrapper">
             <label class="passenger-form__label" for="age">Возраст</label>

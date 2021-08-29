@@ -7,7 +7,6 @@ import { CarrierTariff, OverweightBaggageParams, PassengerData, Tariff } from '.
 export class TariffsService {
 
   constructor() { }
-
   
   rzdTariffs: CarrierTariff[] = [
     {
@@ -56,7 +55,7 @@ export class TariffsService {
         },
       },
     },
-  ]
+  ];
 
   aeroflotTariffs: CarrierTariff[] = [
     {
@@ -146,7 +145,7 @@ export class TariffsService {
 
     const costWithoutDiscount = distanceCost + baggageCost;
 
-    if (ageDiscountParams === undefined || age > ageDiscountParams.age) {
+    if (!ageDiscountParams || (age > ageDiscountParams.age)) {
       return costWithoutDiscount;
     }
     

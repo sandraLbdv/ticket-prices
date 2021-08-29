@@ -7,7 +7,7 @@
             </span>
         </li>
 
-        <li *ngIf="tariffsCosts.length === 0" class="cost-info__item">
+        <li *ngIf="tariffsCosts && tariffsCosts.length === 0" class="cost-info__item">
             <span class="cost-info__alert">
                 Доступных тарифов не найдено
             </span>
