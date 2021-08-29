@@ -1,0 +1,11 @@
+@mixin portrait-props {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin landscape-props {
+  @media (orientation: landscape) {
+    @content;
+  }
+}

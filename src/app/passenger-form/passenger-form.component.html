@@ -1,26 +1,32 @@
-<div class="content">
+<div class="passenger-form__root">
     <form [formGroup]="passengerForm" (ngSubmit)="onSubmit()" class="passenger-form">
-        <label for="distance">Количество километров</label>
-        <input type="number" formControlName="distance" id="distance">
+        <div class="input-wrapper">
+            <label class="passenger-form__label" for="distance">Количество километров</label>
+            <input class="passenger-form__input" min="0" type="number" formControlName="distance" id="distance">
+        </div>
+        <div class="input-wrapper">
+            <label class="passenger-form__label" for="age">Возраст</label>
+            <input class="passenger-form__input" type="number" min="0" step="1" formControlName="age" id="age">
+        </div>
+        <div class="input-wrapper">
+            <label class="passenger-form__label" for="baggageWeight">Вес багажа</label>
+            <input class="passenger-form__input" type="number" min="0" formControlName="baggageWeight"id="baggageWeight">    
+        </div>
 
-        <label for="age">Возраст</label>
-        <input type="number" step="1" formControlName="age" id="age">
-        
-
-        <label for="baggageWeight">Вес багажа</label>
-        <input type="number" formControlName="baggageWeight"id="baggageWeight">
-
-        <div class="alert" *ngIf="!passengerForm.valid && passengerForm.dirty">
+        <div class="passenger-form__alert" *ngIf="!passengerForm.valid && passengerForm.dirty">
             Введите корректные данные
         </div>
-        <button type="submit" [disabled]="!passengerForm.valid">
+        <button class="passenger-form__button" type="submit" [disabled]="!passengerForm.valid">
             Рассчитать
         </button>
     </form>
+
     <div class="costs" *ngIf="passengerData">
-        <div class="carrier-info" *ngFor="let carrier of carriers">
-            <app-cost-info [passengerData]='passengerData' [carrierName]='carrier'></app-cost-info>
+        <p class="costs__title">Предложения</p>
+        <div class="carrier-info__wrapper">
+            <div class="costs__carrier-info" *ngFor="let carrier of carriers">
+                <app-cost-info [passengerData]='passengerData' [carrierName]='carrier'></app-cost-info>
+            </div>
         </div>
-    
     </div>
 </div>

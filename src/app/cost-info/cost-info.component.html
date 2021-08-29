@@ -1,7 +1,16 @@
-<div class="content">
-    <span>{{carrierName}}</span>
+<div class="cost-info__root">
+    <p class="cost-info__title">{{carrierName}}</p>
+    <ul class="cost-info__list">
+        <li *ngFor="let cost of tariffsCosts" class="cost-info__item">
+            <span  class="cost-info__tariff">
+                {{cost.name}}: {{cost.cost}} &#8381;
+            </span>
+        </li>
 
-    <span *ngFor="let cost of tariffsCosts">
-        {{cost.name}}: {{cost.cost}}&#8381;
-    </span>
+        <li *ngIf="tariffsCosts.length === 0" class="cost-info__item">
+            <span class="cost-info__alert">
+                Доступных тарифов не найдено
+            </span>
+        </li>
+    </ul>
 </div>
